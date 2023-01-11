@@ -1,0 +1,33 @@
+{% extends 'shop/index.html' %}
+{% block content %}
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-6'>
+                <div class='row'>
+                    <div class='col-md-12 img'>
+                        <img src="{{ product_object.image }}" class='img'>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-6 detail'>
+                <div class='row title'>
+                    <div class='col-md-12'>
+                        {{ product_object.title }}
+                    </div>
+                </div>
+                <div class='row price'>
+                    <div class='col-md-12'>
+                        {{ product_object.price }} $
+                    </div>
+                </div>
+                <div class='row description'>
+                    <div class='col-md-12'>
+                        <h1>INFO</h1>
+                        {{ product_object.description }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock  %}

@@ -1,0 +1,95 @@
+{% extends 'shop/index.html' %}
+{% block content %}
+    <div class='row'>
+        <div class='col-md-12'>
+            <form class='card card-sm'>
+                <div class='card-body row no-gutters align-items-center'>
+                    <div class='col'>
+                        <input type="search" name="item_name" placeholder="Search for products" class="form-control form-control-borderless">
+                    </div>
+                    <div class='col-auto'>
+                        <button class='btn btn-success' type='submit'>Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+<br>
+    <div class='row'>
+        {% for product in product_objects %}
+        <div class='col-md-3'>
+            <div class='card'>
+                <img src="{{product.image}}" class='card-img-top'>
+                <div class='card-body'>
+                    <div id='nm{{product.id}}' class='card-title ct'>{{product.title}}</div>
+                    <div id='price{{product.id}}' class='card-text'>{{product.price}} $</div>
+                    <a href='/{{ product.id }}' class='btn btn-warning'>View</a>
+                    <button id='{{product.id}}' class='btn atc btn-warning'>Add to cart</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+<br>
+    <div class='row'>
+        <div class='col-md-3 offset-md-4'>
+            <ul class='pagination'>
+                {% if product_objects.has_previous %}
+                    <li class='page-item'>
+                        <a class='page-link' href="?page={{ product_objects.previous_page_number}}">Previous</a>
+                    </li>
+                {% endif %}
+
+                <li class='page-item active'>
+                    <a class='page-link' href="?page={{ product_objects.number}}">Current</a>
+                </li>
+
+                {% if product_objects.has_next %}
+                <li class='page-item'>
+                    <a class='page-link' href="?page={{ product_objects.next_page_number}}">Next</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<script type='text/javascript'>
+console.log('This is working');
+
+if(localStorage.getItem('cart')==null){
+    var cart={};
+}
+else{
+    cart = JSON.parse(localStorage.getItem('cart'));
+}
+
+//Storing the elements in the localStorage
+$(document).on('click','.atc',function(){
+    console.log("The button is clicked");
+    var item_id = this.id.toString();
+    console.log(item_id);
+    //Adding an item again
+    if(cart[item_id]!=undefined){
+        quantity = cart[item_id][0] + 1;
+        cart[item_id][0] = quantity;
+        cart[item_id][2] = cart[item_id][2] + parseFloat(document.getElementById('price'+item_id).innerHTML);
+    }
+    else //Adding an item the first time
+    {
+        quantity = 1;
+        price = parseFloat(document.getElementById('price'+item_id).innerHTML)
+        name = document.getElementById('nm'+item_id).innerHTML;
+        cart[item_id] = [quantity,name,price];
+
+
+    }
+    console.log(cart);
+    localStorage.setItem('cart',JSON.stringify(cart));
+    document.getElementById('cart').innerHTML = "Cart("+ Object.keys(cart).length + ")";
+    
+})
+</script>
+
+{% endblock content %}
