@@ -15,15 +15,15 @@ Back-end technologies used in the project:
 Python
 The main functions include:
 
-The 'Home' page
-Page with all the products
-Detail view page
-Adding products to cart
-Removing products from the cart
-Popover added to the cart in navbar
-Checkout form
-Saving all the checkout data to the database
-The website resizes for smaller devices
-Bootstrap 5 was used to style the website
+- The 'Home' page
+- Page with all the products
+- Detail view page
+- Adding products to cart
+- Removing products from the cart
+- Popover added to the cart in navbar
+- Checkout form
+- Saving all the checkout data to the database
+- The website resizes for smaller devices
+- Bootstrap 5 was used to style the website
 
 Project includes two models: Products and Order
