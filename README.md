@@ -1,4 +1,4 @@
-#E-Commerce Project
+# E-Commerce Project
 Welcome to my E-commerce site portfolio project
 
 This is a Django 4.1.4 project.
