@@ -5,6 +5,8 @@ This is a Django 4.1.4 project.
 
 This project is a simple e-commerce website project.
 
+To properly use this project you have to change the path for python in pyvenv.cfg to use the python virtual enviroment.
+
 On this page, the user can view and add products to the shopping cart. All added products will be displayed in the popover and in the checkout summary. When the user clicks the 'Place order' button, his data will be saved to the database. Products can only be added through the admin directly in the database
 
 Front-end technologies used in the project:
