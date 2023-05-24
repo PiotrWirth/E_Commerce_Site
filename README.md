@@ -33,3 +33,7 @@ Back-end technologies used in the project:
 - Saving all the checkout data to the database
 - The website resizes for smaller devices
 - Bootstrap 5 was used to style the website
+
+![ECOM_1](https://github.com/PiotrWirth/Website_E_Commerce_Project/assets/26605945/ae2df40b-3dcf-4041-87df-4402db2e408f)
+![ECOM_2](https://github.com/PiotrWirth/Website_E_Commerce_Project/assets/26605945/cd8f41bb-e8f4-41b4-9f9b-21ce9ac71f3a)
+
